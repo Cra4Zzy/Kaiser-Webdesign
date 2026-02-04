@@ -455,11 +455,15 @@
             </div>
           </div>
 
-          <div class="audit__form glass reveal">
-            <form class="mini-form" action="#" method="post">
-              <div class="mini-field">
-                <label for="audit-name">Name *</label>
-                <input id="audit-name" name="name" type="text" required>
+          
+        <div class="audit__form glass reveal">
+          
+           <form class="mini-form"
+      action="https://formspree.io/f/xykpraze"
+      method="POST">
+  <input type="hidden" name="page" value="social-audit">
+             
+
               </div>
               <div class="mini-field">
                 <label for="audit-email">E-Mail *</label>
@@ -523,5 +527,48 @@ window.addEventListener("scroll", () => {
   }
 });
   </script>
+
+  <script>
+  const auditForm = document.querySelector('.mini-form');
+
+  if (auditForm) {
+    auditForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const button = auditForm.querySelector('button[type="submit"]');
+      const originalHTML = button ? button.innerHTML : '';
+
+      if (button) {
+        button.disabled = true;
+        button.innerHTML = 'Wird gesendet…';
+      }
+
+      const data = new FormData(auditForm);
+
+      try {
+        const res = await fetch(auditForm.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          window.location.href = 'https://www.kaiser-webdesign.de/danke.html';
+          return;
+        }
+
+        throw new Error('Submission failed');
+      } catch (err) {
+        alert('Ups! Senden hat gerade nicht geklappt. Bitte versuch es erneut oder schreib mir direkt per Mail.');
+        if (button) {
+          button.disabled = false;
+          button.innerHTML = originalHTML;
+        }
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
+
