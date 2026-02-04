@@ -454,42 +454,52 @@
               </div>
             </div>
           </div>
-
           
-        <div class="audit__form glass reveal">
+ <section>
+          <div class="audit__form glass reveal">
+  <form class="mini-form"
+        action="https://formspree.io/f/xykpraze"
+        method="POST">
+        
+    <input type="hidden" name="page" value="social-audit">
+
+    <div class="mini-field">
+      <label for="audit-name">Name *</label>
+      <input id="audit-name" name="name" type="text" required>
+    </div>
+
+    <div class="mini-field">
+      <label for="audit-email">E-Mail *</label>
+      <input id="audit-email" name="email" type="email" required>
+    </div>
+
+    <div class="mini-field">
+      <label for="audit-link">Profil-Link *</label>
+      <input id="audit-link" name="profile" type="url" placeholder="https://instagram.com/..." required>
+    </div>
+
+    <div class="mini-field">
+      <label for="audit-goal">Ziel *</label>
+      <textarea id="audit-goal" name="goal" rows="4"
+        placeholder="Mehr Anfragen, Personal Branding, Recruiting …" required></textarea>
+    </div>
+
+    <div class="form-group form-group--checkbox" style="margin-bottom:0.85rem;">
+      <input type="checkbox" id="audit-privacy" name="privacy" required>
+      <label for="audit-privacy">
+        Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn--primary btn--full">
+      Audit anfragen<span class="btn__glow"></span>
+    </button>
+
+    <p class="form__hint" style="margin-bottom:0;">Antwort meist innerhalb von 24h.</p>
+  </form>
+</div>
           
-           <form class="mini-form"
-      action="https://formspree.io/f/xykpraze"
-      method="POST">
-  <input type="hidden" name="page" value="social-audit">
-             
-
-              </div>
-              <div class="mini-field">
-                <label for="audit-email">E-Mail *</label>
-                <input id="audit-email" name="email" type="email" required>
-              </div>
-              <div class="mini-field">
-                <label for="audit-link">Profil-Link *</label>
-                <input id="audit-link" name="profile" type="url" placeholder="https://instagram.com/..." required>
-              </div>
-              <div class="mini-field">
-                <label for="audit-goal">Ziel *</label>
-                <textarea id="audit-goal" name="goal" rows="4" placeholder="Mehr Anfragen, Personal Branding, Recruiting …" required></textarea>
-              </div>
-
-              <div class="form-group form-group--checkbox" style="margin-bottom:0.85rem;">
-                <input type="checkbox" id="audit-privacy" required>
-                <label for="audit-privacy">Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.</label>
-              </div>
-
-              <button type="submit" class="btn btn--primary btn--full">Audit anfragen<span class="btn__glow"></span></button>
-              <p class="form__hint" style="margin-bottom:0;">Antwort meist innerhalb von 24h.</p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+</section>
   </main>
 
   <footer class="footer">
@@ -571,4 +581,5 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+
 
