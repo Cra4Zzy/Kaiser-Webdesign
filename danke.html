@@ -1,86 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danke! | Kaiser-Webdesign</title>
+  <meta name="description" content="Danke! Deine Anfrage ist bei Kaiser-Webdesign angekommen.">
+
+  <!-- WICHTIG: Hier kommt 1:1 dein kompletter <style> Block rein -->
+  <style>
+    /* ✅ Kopiere hier exakt deinen kompletten CSS-Block aus index.html rein
+       (von :root { ... } bis zum Ende deiner Media Queries)
+    */
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
 <body>
-  <section class="section" style="padding-top: clamp(56px, 8vw, 96px);">
-    <div class="container" style="max-width: 980px;">
+  <div class="noise-layer"></div>
+  <div class="gradient-orbit orbit--one"></div>
+  <div class="gradient-orbit orbit--two"></div>
+  <div class="gradient-orbit orbit--three"></div>
 
-      <div class="glass reveal thanksCard">
-        <p class="eyebrow">Danke!</p>
-        <h1 class="thanksTitle">Deine Anfrage ist angekommen ✅</h1>
-        <p class="thanksLead">
-          Ich hab’s auf dem Schirm und melde mich zeitnah bei dir zurück – meistens innerhalb von <strong>24 Stunden</strong>.
-          Wenn’s dringend ist, ruf gerne direkt durch.
-        </p>
+  <header class="header header--scrolled" id="top">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Kaiser Webdesign Logo" class="logo__img">
+      </a>
 
-        <div class="thanksGrid">
-          <div class="thanksBox">
-            <h3>Was passiert als Nächstes?</h3>
-            <ul class="thanksList">
-              <li>Ich checke kurz deine Infos & Ziele.</li>
-              <li>Du bekommst eine klare Rückmeldung mit einem smarten Vorschlag.</li>
-              <li>Wenn du willst: kurzer Call → danach Plan & nächste Steps.</li>
-            </ul>
-          </div>
+      <nav class="nav" id="mainNav">
+        <a href="Social-Media.html">Social Media</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#cases">Cases</a>
+        <a href="index.html#process">Ablauf</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact" class="nav__cta">Projekt anfragen</a>
+      </nav>
 
-          <div class="thanksBox thanksBox--dark">
-            <h3>Direkter Kontakt</h3>
-            <p class="thanksSmall">
-              Mail: <a href="mailto:ivan@kaiser-webdesign.de">ivan@kaiser-webdesign.de</a><br>
-              Telefon: <a href="tel:+4915150865251">+49 151 50865251</a>
-            </p>
+      <button class="nav-toggle" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-            <div class="thanksBtns">
-              <a class="btn btn--primary" href="index.html">
-                Zur Startseite
-                <span class="btn__glow"></span>
-              </a>
-              <a class="btn btn--ghost" href="kontakt.html">Zurück zu Kontakt</a>
+  <main>
+    <section class="section hero" style="padding-top: 6.3rem;">
+      <div class="container">
+        <div class="glass reveal" style="border-radius: var(--radius-lg); padding: clamp(1.4rem, 3vw, 2.2rem); box-shadow: var(--shadow-soft);">
+          <p class="eyebrow">Danke!</p>
+          <h1 style="margin: .6rem 0 .85rem; font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1.08; font-family: 'Space Grotesk', system-ui, sans-serif;">
+            Deine Anfrage ist angekommen ✅
+          </h1>
+          <p class="hero__sub" style="max-width: 72ch;">
+            Ich melde mich zeitnah bei dir zurück – meistens innerhalb von <strong>&lt; 24h</strong>.
+            Wenn du’s eilig hast, ruf gerne direkt durch oder schreib kurz per Mail.
+          </p>
+
+          <div style="display:grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap: 1.4rem; margin-top: 1.8rem;">
+            <div class="glass" style="border-radius: var(--radius-md); padding: 1.2rem 1.2rem;">
+              <p class="eyebrow" style="margin:0;">Next Steps</p>
+              <h2 style="margin:.5rem 0 .7rem; font-size: 1.5rem; font-family: 'Space Grotesk', system-ui, sans-serif;">
+                Was passiert als Nächstes?
+              </h2>
+              <ul style="margin:0; padding-left: 1.1rem; color: var(--muted);">
+                <li>Ich checke kurz dein Anliegen & Ziel.</li>
+                <li>Du bekommst eine klare Rückmeldung + Vorschlag.</li>
+                <li>Optional: kurzer Call → danach Plan & Umsetzung.</li>
+              </ul>
+
+              <div class="hero__actions" style="margin-top: 1.4rem;">
+                <a href="index.html" class="btn btn--primary">
+                  Zur Startseite
+                  <span class="btn__glow"></span>
+                </a>
+                <a href="index.html#cases" class="btn btn--ghost">Cases ansehen</a>
+              </div>
+            </div>
+
+            <div class="glass" style="border-radius: var(--radius-md); padding: 1.2rem 1.2rem;">
+              <p class="eyebrow" style="margin:0;">Direktkontakt</p>
+              <h2 style="margin:.5rem 0 .7rem; font-size: 1.5rem; font-family: 'Space Grotesk', system-ui, sans-serif;">
+                Du willst’s schneller?
+              </h2>
+
+              <ul class="contact__list" style="margin-top:.6rem;">
+                <li><strong>Mail:</strong> <a href="mailto:ivan@kaiser-webdesign.de">ivan@kaiser-webdesign.de</a></li>
+                <li><strong>Telefon:</strong> <a href="tel:+4915150865251">+49 151 50865251</a></li>
+              </ul>
+
+              <p class="form__hint" style="margin-top: 1rem;">
+                Tipp: Wenn du schon eine Website hast, schick mir direkt den Link mit – dann kann ich dir schneller Feedback geben.
+              </p>
+
+              <div style="display:flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.1rem;">
+                <a href="index.html#contact" class="btn btn--ghost">Zurück zum Formular</a>
+                <a href="Social-Media.html" class="btn btn--ghost">Social Media</a>
+              </div>
             </div>
           </div>
+
+          <p class="form__hint" style="margin-top: 1.1rem;">
+            Falls du aus Versehen doppelt gesendet hast: kein Stress – ich sehe alles und melde mich trotzdem nur einmal. 😄
+          </p>
         </div>
-
-        <p class="form__hint" style="margin-top: 14px;">
-          Kleiner Tipp: Wenn du schon eine Website hast, schick mir gern den Link – dann kann ich dir direkt konkreter helfen.
-        </p>
       </div>
+    </section>
+  </main>
 
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="logo.png" alt="Kaiser Webdesign Logo" class="footer__logo">
+        <span class="footer__text">Kaiser-Webdesign · Digital Studio</span>
+      </div>
+      <div class="footer__links">
+        <a href="Social-Media.html">Social Media</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#cases">Cases</a>
+        <a href="index.html#process">Ablauf</a>
+        <a href="index.html#contact">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- Wichtig: hier unten genau die gleichen JS Dateien wie auf deiner Hauptseite laden -->
-  <!-- z.B. <script src="script.js"></script> -->
+  <script>(()=>{document.documentElement.classList.add('js');const h=document.querySelector('.header'),n=document.getElementById('mainNav'),t=document.querySelector('.nav-toggle'),s=()=>h&&h.classList.toggle('header--scrolled',scrollY>12),c=()=>{n&&n.classList.remove('nav--open');t&&t.setAttribute('aria-expanded','false')},o=()=>{n&&n.classList.add('nav--open');t&&t.setAttribute('aria-expanded','true')};t&&(t.onclick=()=>n&&n.classList.contains('nav--open')?c():o(),t.setAttribute('aria-expanded','false'),t.setAttribute('aria-controls','mainNav'));document.addEventListener('click',e=>{if(!n||!t||!n.classList.contains('nav--open'))return;const r=e.target;if(n.contains(r)||t.contains(r))return;c()});document.querySelectorAll('a[href^="#"]').forEach(a=>{const r=a.getAttribute('href');if(!r||r==="#")return;a.addEventListener('click',e=>{const l=document.getElementById(r.slice(1));if(!l)return;e.preventDefault();l.scrollIntoView({behavior:'smooth',block:'start'});c()})});const els=[...document.querySelectorAll('.reveal')];if('IntersectionObserver'in window){const io=new IntersectionObserver(es=>es.forEach(en=>{en.isIntersecting&&(en.target.classList.add('is-visible'),io.unobserve(en.target))}),{threshold:.12});els.forEach(el=>io.observe(el))}else els.forEach(el=>el.classList.add('is-visible'));addEventListener('scroll',s,{passive:true});s()})();</script>
 </body>
+</html>
 
-
-/* --- Danke Seite (minimal add-on) --- */
-.thanksCard { padding: clamp(18px, 3vw, 28px); }
-.thanksTitle { margin-top: 6px; }
-.thanksLead { max-width: 70ch; }
-
-.thanksGrid{
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 16px;
-  margin-top: 18px;
-}
-
-.thanksBox{
-  padding: 16px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-}
-
-.thanksBox--dark{
-  background: rgba(0,0,0,.22);
-}
-
-.thanksList{
-  margin: 10px 0 0;
-  padding-left: 18px;
-}
-
-.thanksSmall{ margin-top: 10px; opacity: .9; }
-.thanksBtns{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
-
-@media (max-width: 900px){
-  .thanksGrid{ grid-template-columns: 1fr; }
-}
