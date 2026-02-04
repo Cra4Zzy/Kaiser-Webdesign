@@ -538,7 +538,8 @@ window.addEventListener("scroll", () => {
 });
   </script>
 
-  <script>
+
+<script>
   const auditForm = document.querySelector('.mini-form');
 
   if (auditForm) {
@@ -559,7 +560,9 @@ window.addEventListener("scroll", () => {
         const res = await fetch(auditForm.action, {
           method: 'POST',
           body: data,
-          headers: { 'Accept': 'application/json' }
+          headers: {
+            'Accept': 'application/json'
+          }
         });
 
         if (res.ok) {
@@ -567,9 +570,12 @@ window.addEventListener("scroll", () => {
           return;
         }
 
-        throw new Error('Submission failed');
+        // Für Debug: Status anzeigen
+        const txt = await res.text().catch(() => '');
+        throw new Error(`HTTP ${res.status}: ${txt}`);
       } catch (err) {
         alert('Ups! Senden hat gerade nicht geklappt. Bitte versuch es erneut oder schreib mir direkt per Mail.');
+        console.error(err);
         if (button) {
           button.disabled = false;
           button.innerHTML = originalHTML;
@@ -579,7 +585,9 @@ window.addEventListener("scroll", () => {
   }
 </script>
 
+          
 </body>
 </html>
+
 
 
