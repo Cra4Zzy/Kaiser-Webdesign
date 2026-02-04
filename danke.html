@@ -1,0 +1,86 @@
+<body>
+  <section class="section" style="padding-top: clamp(56px, 8vw, 96px);">
+    <div class="container" style="max-width: 980px;">
+
+      <div class="glass reveal thanksCard">
+        <p class="eyebrow">Danke!</p>
+        <h1 class="thanksTitle">Deine Anfrage ist angekommen ✅</h1>
+        <p class="thanksLead">
+          Ich hab’s auf dem Schirm und melde mich zeitnah bei dir zurück – meistens innerhalb von <strong>24 Stunden</strong>.
+          Wenn’s dringend ist, ruf gerne direkt durch.
+        </p>
+
+        <div class="thanksGrid">
+          <div class="thanksBox">
+            <h3>Was passiert als Nächstes?</h3>
+            <ul class="thanksList">
+              <li>Ich checke kurz deine Infos & Ziele.</li>
+              <li>Du bekommst eine klare Rückmeldung mit einem smarten Vorschlag.</li>
+              <li>Wenn du willst: kurzer Call → danach Plan & nächste Steps.</li>
+            </ul>
+          </div>
+
+          <div class="thanksBox thanksBox--dark">
+            <h3>Direkter Kontakt</h3>
+            <p class="thanksSmall">
+              Mail: <a href="mailto:ivan@kaiser-webdesign.de">ivan@kaiser-webdesign.de</a><br>
+              Telefon: <a href="tel:+4915150865251">+49 151 50865251</a>
+            </p>
+
+            <div class="thanksBtns">
+              <a class="btn btn--primary" href="index.html">
+                Zur Startseite
+                <span class="btn__glow"></span>
+              </a>
+              <a class="btn btn--ghost" href="kontakt.html">Zurück zu Kontakt</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="form__hint" style="margin-top: 14px;">
+          Kleiner Tipp: Wenn du schon eine Website hast, schick mir gern den Link – dann kann ich dir direkt konkreter helfen.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Wichtig: hier unten genau die gleichen JS Dateien wie auf deiner Hauptseite laden -->
+  <!-- z.B. <script src="script.js"></script> -->
+</body>
+
+
+/* --- Danke Seite (minimal add-on) --- */
+.thanksCard { padding: clamp(18px, 3vw, 28px); }
+.thanksTitle { margin-top: 6px; }
+.thanksLead { max-width: 70ch; }
+
+.thanksGrid{
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.thanksBox{
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+}
+
+.thanksBox--dark{
+  background: rgba(0,0,0,.22);
+}
+
+.thanksList{
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.thanksSmall{ margin-top: 10px; opacity: .9; }
+.thanksBtns{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
+
+@media (max-width: 900px){
+  .thanksGrid{ grid-template-columns: 1fr; }
+}
