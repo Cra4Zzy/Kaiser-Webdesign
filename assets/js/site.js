@@ -72,6 +72,8 @@
       this.count = Number(section.dataset.frameCount) || 1;
       this.pathTemplate = section.dataset.framePath;
       this.packPattern = section.dataset.packPattern;
+      this.packScriptPattern = section.dataset.packScriptPattern;
+      this.sequenceName = section.dataset.sequenceName || "sequence";
       this.packCount = Number(section.dataset.packCount) || 0;
       this.framesPerPack = Number(section.dataset.framesPerPack) || this.count;
       this.packBlobs = new Array(this.packCount);
@@ -120,6 +122,54 @@
       return this.packPattern.replace("{part}", String(packIndex + 1).padStart(2, "0"));
     }
 
+    packScriptUrl(packIndex) {
+      return this.packScriptPattern.replace("{part}", String(packIndex + 1).padStart(2, "0"));
+    }
+
+    loadPackScript(packIndex) {
+      if (!this.packScriptPattern) {
+        return Promise.reject(new Error("Lokale Sequenzdatei ist nicht verfügbar."));
+      }
+
+      const part = String(packIndex + 1).padStart(2, "0");
+      const key = `${this.sequenceName}-${part}`;
+      const registry = window.__KAISER_SEQUENCE_PACKS__ || (window.__KAISER_SEQUENCE_PACKS__ = {});
+
+      const decodeRegisteredPack = () => {
+        const encoded = registry[key];
+        if (!encoded) throw new Error("Lokale Sequenzdatei ist ungültig.");
+
+        delete registry[key];
+        const binary = window.atob(encoded);
+        const bytes = new Uint8Array(binary.length);
+        for (let index = 0; index < binary.length; index += 1) {
+          bytes[index] = binary.charCodeAt(index);
+        }
+        return new Blob([bytes], { type: "application/octet-stream" });
+      };
+
+      if (registry[key]) return Promise.resolve(decodeRegisteredPack());
+
+      return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = this.packScriptUrl(packIndex);
+        script.onload = () => {
+          script.remove();
+          try {
+            resolve(decodeRegisteredPack());
+          } catch (error) {
+            reject(error);
+          }
+        };
+        script.onerror = () => {
+          script.remove();
+          reject(new Error("Lokale Sequenzdatei konnte nicht geladen werden."));
+        };
+        document.head.appendChild(script);
+      });
+    }
+
     async loadPack(packIndex, onProgress) {
       const safePackIndex = clamp(Math.round(packIndex), 0, this.packCount - 1);
       if (!this.packPattern || this.failedPacks.has(safePackIndex)) return null;
@@ -131,28 +181,37 @@
       if (this.packPromises[safePackIndex]) return this.packPromises[safePackIndex];
 
       const fetchAndParsePack = async () => {
-        const response = await fetch(this.packUrl(safePackIndex), { cache: "force-cache" });
-        if (!response.ok) throw new Error("Sequenzdatei konnte nicht geladen werden.");
-
-        const totalBytes = Number(response.headers.get("content-length")) || 0;
         let packBlob;
+        let totalBytes = 0;
 
-        if (response.body && typeof response.body.getReader === "function") {
-          const reader = response.body.getReader();
-          const chunks = [];
-          let loadedBytes = 0;
-
-          while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            chunks.push(value);
-            loadedBytes += value.byteLength;
-            if (onProgress && totalBytes) onProgress(loadedBytes, totalBytes);
-          }
-
-          packBlob = new Blob(chunks, { type: "application/octet-stream" });
+        if (this.directFileMode) {
+          packBlob = await this.loadPackScript(safePackIndex);
         } else {
-          packBlob = await response.blob();
+          try {
+            const response = await fetch(this.packUrl(safePackIndex), { cache: "force-cache" });
+            if (!response.ok) throw new Error("Sequenzdatei konnte nicht geladen werden.");
+
+            totalBytes = Number(response.headers.get("content-length")) || 0;
+            if (response.body && typeof response.body.getReader === "function") {
+              const reader = response.body.getReader();
+              const chunks = [];
+              let loadedBytes = 0;
+
+              while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                chunks.push(value);
+                loadedBytes += value.byteLength;
+                if (onProgress && totalBytes) onProgress(loadedBytes, totalBytes);
+              }
+
+              packBlob = new Blob(chunks, { type: "application/octet-stream" });
+            } else {
+              packBlob = await response.blob();
+            }
+          } catch (error) {
+            packBlob = await this.loadPackScript(safePackIndex);
+          }
         }
 
         if (onProgress) onProgress(packBlob.size, totalBytes || packBlob.size);
@@ -440,6 +499,7 @@
       this.context.fillRect(0, 0, canvasWidth, canvasHeight);
       this.context.drawImage(image, drawX, drawY, drawWidth, drawHeight);
       this.lastFrame = index;
+      this.canvas.dataset.renderedFrame = String(index);
       this.warmDecode(index);
       return true;
     }

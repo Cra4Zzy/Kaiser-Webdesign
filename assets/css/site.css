@@ -1184,6 +1184,15 @@ ul {
   transition: transform 900ms var(--ease), filter 700ms;
 }
 
+.project.project--formraum img {
+  object-fit: contain;
+  object-position: 50% 50%;
+}
+
+.project.project--formraum:hover img {
+  transform: none;
+}
+
 .project:hover img {
   filter: brightness(1.17) saturate(1);
   transform: scale(1.025);
