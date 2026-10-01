@@ -27,7 +27,7 @@ const goals={
  projects:{label:'Projekte präsentieren',short:'Projekte',copy:'Arbeiten groß zeigen, filtern und als Case Study vertiefen.',recs:['gallery','case','compare']}
 };
 const palettes={
- kaiser:{label:'Kaiser',primary:'#32d8f5',accent:'#ae70ff',bg:'#f7f8f9',dark:false},
+ kaiser:{label:'Modern',primary:'#32d8f5',accent:'#ae70ff',bg:'#f7f8f9',dark:false},
  minimal:{label:'Minimal',primary:'#c4d4d8',accent:'#6f768b',bg:'#f6f7f8',dark:false},
  warm:{label:'Warm',primary:'#d9a86c',accent:'#6f4d38',bg:'#faf7f2',dark:false},
  night:{label:'Night',primary:'#b6ff43',accent:'#32d8f5',bg:'#17181d',dark:true}
