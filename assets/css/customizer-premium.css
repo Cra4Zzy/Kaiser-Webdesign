@@ -152,7 +152,7 @@
  #konfigurator .config-totalbar>button{width:100%!important;font-size:15px!important;padding:12px!important;justify-content:center}
  #konfigurator .config-footnote{font-size:13px}
 }
-@media(max-width:500px){#konfigurator .package-cards{row-gap:18px!important}}
+@media(max-width:500px){#konfigurator .package-cards{row-gap:30px!important}}
 #konfigurator .config-page-control{flex-wrap:wrap;gap:14px}
 #konfigurator .config-page-control>div:first-child{min-width:0}
 #konfigurator .config-workbench [hidden]{display:none!important}
