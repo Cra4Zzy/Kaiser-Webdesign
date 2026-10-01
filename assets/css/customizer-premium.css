@@ -126,7 +126,7 @@
  #konfigurator .config-controls{grid-row:2;padding:0 16px 20px!important;border:0}
  #konfigurator .config-steps button{font-size:13px;padding:10px 6px!important;min-height:48px}
  #konfigurator .config-steps button span{font-size:14px}
- #konfigurator #preview-show{display:flex!important;justify-content:space-between;align-items:center;width:100%;min-height:48px;padding:12px 14px;background:#203138;border:1px solid #627e87;border-radius:8px;color:#dcecee;font-size:15px;margin-top:18px}
+ #konfigurator #preview-show{display:flex!important;justify-content:space-between;align-items:center;width:100%;min-height:52px;padding:13px 15px;background:linear-gradient(135deg,#294332 0%,#20383d 100%);border:1px solid #bfe887;border-radius:9px;color:#f3faef;font-size:15px;font-weight:700;margin-top:20px;box-shadow:0 10px 28px rgba(0,0,0,.22),inset 0 0 0 1px rgba(191,232,135,.10)}
  #konfigurator .config-visual{display:none;position:relative;top:auto;grid-row:1;padding:16px!important;border-bottom:1px solid #465e66}
  #konfigurator.is-preview-open .config-visual{display:block}
  #konfigurator #preview-close{display:block!important;min-height:48px;font-size:15px;color:#d6edc5;margin-bottom:14px}
@@ -152,6 +152,7 @@
  #konfigurator .config-totalbar>button{width:100%!important;font-size:15px!important;padding:12px!important;justify-content:center}
  #konfigurator .config-footnote{font-size:13px}
 }
+@media(max-width:500px){#konfigurator .package-cards{row-gap:11.25px!important}}
 #konfigurator .config-page-control{flex-wrap:wrap;gap:14px}
 #konfigurator .config-page-control>div:first-child{min-width:0}
 #konfigurator .config-workbench [hidden]{display:none!important}
