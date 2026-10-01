@@ -58,7 +58,7 @@ dialog{border:0;padding:0;color:var(--black);background:var(--white);max-height:
   -webkit-backface-visibility:hidden;
   transform-origin:center center;
 }
-@media(max-width:760px){.craft-visual>img{transform:rotate(-.55deg) scale(1.02)}}
+@media(max-width:760px){.craft-visual{padding:18px 12px 50px}.craft-visual>img{transform:rotate(-.55deg) scale(1.02)}.craft-label{left:16px;bottom:17px}}
 
 /* Dynamic contact fields inherit the exact visual rhythm of the original form. */
 .project-fields>label{font-size:14px;display:block;margin-bottom:25px}
