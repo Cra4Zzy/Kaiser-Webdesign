@@ -61,7 +61,7 @@
   .config-intro h2{font-size:clamp(38px,11vw,58px);margin-top:12px}
   .config-intro>p{font-size:14px;line-height:1.55;padding-bottom:0}
   .package-cards{margin-bottom:20px}
-  .package-card{gap:10px!important;padding:15px!important}
+  .package-card{gap:10px!important;padding:14px!important}
   .package-pick{gap:9px!important}
   .package-pick>strong{font-size:20px!important;line-height:1.08}
   .package-pick>.package-price{font-size:28px!important}
