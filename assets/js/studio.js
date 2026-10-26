@@ -41,10 +41,10 @@ $('[data-close-reel]').addEventListener('click',()=>reelDialog.close());reelDial
 // Play visible reels silently; preserve deliberate pauses and reduced-motion preferences.
 const inlineReels=$$('[data-inline-reel]');
 const reelState=new Map(inlineReels.map(v=>[v,{visible:false,pausedByUser:false}]));
-function syncReels(){inlineReels.forEach(v=>{const state=reelState.get(v);if(!state.visible||document.hidden||reelDialog.open||projectDialog.open){v.pause();return;}if(!motion.matches&&!state.pausedByUser)v.play().catch(()=>{});});}
+function syncReels(){inlineReels.forEach(v=>{const state=reelState.get(v);if(!state.visible||document.hidden||reelDialog.open||projectDialog.open){v.pause();return;}if(!motion.matches&&!navigator.connection?.saveData&&!state.pausedByUser)v.play().catch(()=>{});});}
 inlineReels.forEach(v=>{
  v.muted=true;
- v.addEventListener('pause',()=>{const state=reelState.get(v);if(state.visible&&!document.hidden&&!reelDialog.open&&!projectDialog.open)state.pausedByUser=true;});
+ v.addEventListener('pause',()=>{const state=reelState.get(v);if(state.visible&&!document.hidden&&!motion.matches&&!reelDialog.open&&!projectDialog.open)state.pausedByUser=true;});
  v.addEventListener('play',()=>{reelState.get(v).pausedByUser=false;});
  v.addEventListener('volumechange',()=>{if(!v.muted)inlineReels.filter(other=>other!==v).forEach(other=>{other.muted=true;});});
 });

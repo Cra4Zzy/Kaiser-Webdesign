@@ -56,7 +56,7 @@
     position += (target - position) * (1 - Math.exp(-elapsed / 85));
     if (Math.abs(target - position) < 0.0002) position = target;
     stage.style.setProperty('--hero-progress', position);
-    chapter.textContent = position < .22 ? '01 / DEINE MARKE' : position < .67 ? '02 / DESIGN & ENTWICKLUNG' : '03 / DEIN DIGITALER AUFTRITT';
+    chapter.textContent = position < .30 ? '01 / DEINE MARKE' : position < .72 ? '02 / ALLES GREIFT INEINANDER' : '03 / DEIN DIGITALER AUFTRITT';
     seek();
     if (position !== target) schedule();
     else lastTick = 0;
@@ -87,7 +87,7 @@
     if (loaded || !enabled || shortScreen.matches) return;
     loaded = true;
     video.preload = 'auto';
-    video.src = `assets/video/kaiser-scroll-${mobileSource ? 'mobile' : 'desktop'}.mp4?v=github-ready-4`;
+    video.src = `assets/video/kaiser-scroll-${mobileSource ? 'mobile' : 'desktop'}.mp4?v=20261026-1`;
     video.load();
   }
 
