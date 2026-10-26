@@ -5,8 +5,6 @@
   const section = document.querySelector('.hero-scroll');
   if (!section) return;
   const stage = section.querySelector('.hero-sticky');
-  const media = section.querySelector('.hero-media');
-  const cover = section.querySelector('.hero-mark-cover');
   const video = section.querySelector('.hero-video');
   const chapter = section.querySelector('[data-hero-step]');
   if (!stage || !video || !chapter) return;
@@ -83,17 +81,6 @@
     else lastTick = 0;
   }
 
-  // Match object-fit: contain exactly, including letterboxing on phones.
-  function positionCover() {
-    if (!media || !cover) return;
-    const w = media.clientWidth, h = media.clientHeight;
-    const fw = Math.min(w, h * 16 / 9), fh = fw * 9 / 16;
-    Object.assign(cover.style, {
-      left: `${(w - fw) / 2}px`, top: `${(h - fh) / 2}px`,
-      width: `${fw * .075}px`, height: `${fh * .115}px`
-    });
-  }
-
   function measure() {
     const rect = section.getBoundingClientRect();
     visible = rect.bottom > 0 && rect.top < innerHeight;
@@ -108,7 +95,7 @@
     if (loaded || !enabled || shortScreen.matches) return;
     loaded = true;
     video.preload = 'auto';
-    video.src = `assets/video/kaiser-scroll-${mobileSource ? 'mobile' : 'desktop'}.mp4?v=20261026-1`;
+    video.src = `assets/video/kaiser-scroll-${mobileSource ? 'mobile' : 'desktop'}.mp4?v=20261026-clean-6`;
     video.load();
   }
 
@@ -143,7 +130,7 @@
   });
   shortScreen.addEventListener('change', sync);
   addEventListener('scroll', measure, { passive: true });
-  addEventListener('resize', () => { positionCover(); measure(); }, { passive: true });
+  addEventListener('resize', () => { measure(); }, { passive: true });
   addEventListener('pageshow', measure);
   document.addEventListener('visibilitychange', () => {
     lastTick = 0;
@@ -152,8 +139,6 @@
   });
   if ('ResizeObserver' in window) {
     new ResizeObserver(measure).observe(stage);
-    if (media) new ResizeObserver(positionCover).observe(media);
   }
-  positionCover();
   sync();
 })();
