@@ -91,7 +91,7 @@
 /* One scroll track, one pinned stage, four successive project scenes. */
 .story-navigation{display:none}
 .story-scroll.is-pinned{position:relative;height:calc(var(--story-count,4) * 100svh + 100svh)}
-.is-pinned .story-stage{position:sticky;top:0;height:100svh;padding-block:112px 94px;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+.is-pinned .story-stage{position:sticky;top:0;height:100svh;padding-block:112px 94px;display:flex;flex-direction:column;overflow:clip;isolation:isolate}
 .is-pinned .story-rows{position:relative;flex:1;min-height:0;width:100%}
 .is-pinned .story-row{position:absolute;inset:0;min-height:0;padding:0;border:0;gap:clamp(45px,7vw,125px);align-content:center;align-items:center}
 .is-pinned .story-visual{transform:translate3d(0,var(--story-image-y,0px),0);opacity:var(--story-image-opacity,0);will-change:transform,opacity}
