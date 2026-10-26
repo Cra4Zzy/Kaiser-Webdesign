@@ -1,6 +1,6 @@
 (function(root){
 'use strict';
-const packages={start:{name:'Start',price:349,pages:1,rounds:1,description:'Ein klarer Anfang.',detail:'Ein Onepager · bis zu 5 Abschnitte · Basislayout'},business:{name:'Business',price:879,pages:5,rounds:2,description:'Platz für dein Unternehmen.',detail:'Bis zu 5 Seiten · abgestimmte Gestaltung'},premium:{name:'Premium',price:1449,pages:5,rounds:2,description:'Ein Auftritt, der bewegt.',detail:'Bis zu 5 Seiten · 1 cineastische Scroll-Sequenz'}};
+const packages={start:{name:'Start',price:349,pages:1,rounds:1,description:'Ein klarer Anfang.',detail:'Ein Onepager · bis zu 5 Abschnitte · Basislayout'},business:{name:'Business',price:879,pages:5,rounds:2,description:'Platz für dein Unternehmen.',detail:'Bis zu 5 Seiten · abgestimmte Gestaltung'},premium:{name:'Premium',price:1449,pages:8,rounds:2,description:'Ein Auftritt, der bewegt.',detail:'Bis zu 8 Inhaltsseiten · 1 cineastische Scroll-Sequenz'}};
 // Prices are euros. Variable and bespoke services remain clearly qualified.
 const raw=[
 ['sections','Inhalte','Zusätzlicher Abschnitt',39,'Ein weiterer Inhaltsabschnitt auf einer bestehenden Seite.', 'qty'],

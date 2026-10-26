@@ -270,3 +270,32 @@
 
 #konfigurator .package-top>span:first-child{color:#e1e5ef;font-weight:500;letter-spacing:0}
 #konfigurator .package-card.is-selected .package-top>span:first-child{color:#c3b1ff}
+
+/* Distinct package identities; only the chosen card fills with its accent. */
+#konfigurator .package-card{--package-accent:#72a7ff;--package-ink:#14243e;--package-tint:#172438;--package-line:#72a7ff50;--package-glow:#72a7ff16;transition:background .32s,border-color .32s,box-shadow .32s,transform .32s}
+#konfigurator .package-card[data-package-card=start]{--package-accent:#63dce9;--package-ink:#123139;--package-tint:#102a30;--package-line:#63dce950;--package-glow:#63dce916}
+#konfigurator .package-card[data-package-card=premium]{--package-accent:#bd9bff;--package-ink:#261b3f;--package-tint:#271d3b;--package-line:#bd9bff50;--package-glow:#bd9bff1a}
+#konfigurator .package-card:hover{border-color:var(--package-accent);box-shadow:0 18px 45px #0003;transform:translateY(-4px)}
+#konfigurator .package-card.is-selected{background:radial-gradient(ellipse at 85% 0%,var(--package-glow),transparent 70%),var(--package-tint);border-color:var(--package-accent);box-shadow:inset 0 0 0 1px var(--package-line),0 18px 55px var(--package-glow)}
+#konfigurator .package-card .package-top>span:first-child{color:var(--package-accent);font-size:16px;font-weight:500}
+#konfigurator .package-card .package-check{border-color:var(--package-line);color:var(--package-accent);transition:background .3s,color .3s,border-color .3s}
+#konfigurator .package-card.is-selected .package-check{background:var(--package-accent);border-color:var(--package-accent);color:var(--package-ink)}
+#konfigurator .package-card .package-select-label{transition:background .3s,color .3s,border-color .3s;background:#ffffff08;border-color:var(--package-line);color:#e6eaf2}
+#konfigurator .package-card:hover .package-select-label{background:var(--package-tint);border-color:var(--package-accent)}
+#konfigurator .package-card.is-selected .package-select-label{background:var(--package-accent);color:var(--package-ink);border-color:var(--package-accent)}
+#konfigurator .package-card .package-select-label>span{font-size:17px;transition:transform .3s}
+#konfigurator .package-card:hover .package-select-label>span{transform:translate(2px,-2px)}
+#konfigurator .package-card .package-features li::before{color:var(--package-accent)}
+#konfigurator .package-scope{display:flex;align-items:center;gap:20px;border-block:1px solid #ffffff16;padding-block:18px;margin:1px 0 2px}
+#konfigurator .package-scope-number{display:flex;flex-direction:column;gap:4px;min-width:54px;color:var(--package-accent)}
+#konfigurator .package-scope-number>small{font-size:10px;letter-spacing:.03em;line-height:1.3}
+#konfigurator .package-scope-number>b{font-size:52px;letter-spacing:-.055em;font-weight:400;line-height:.95}
+#konfigurator .package-scope>span:last-child{font-size:16px;color:#e7ebf5;line-height:1.5}
+#konfigurator .package-scope>span:last-child>small{display:block;font-size:11px;color:#aab5c8;margin-top:3px}
+#konfigurator .package-highlights{display:grid;gap:9px;min-height:44px;font-size:12px;line-height:1.6;color:#c5cfdf}
+#konfigurator .package-highlights>span{display:flex;align-items:baseline;gap:9px}
+#konfigurator .package-highlights i{color:var(--package-accent);font-size:11px;font-style:normal}
+#konfigurator .package-card .package-price{padding-top:3px}
+@media(max-width:850px) and (min-width:581px){#konfigurator .package-scope{gap:10px;padding-block:14px}#konfigurator .package-scope-number{min-width:35px}#konfigurator .package-scope-number>b{font-size:38px}#konfigurator .package-scope>span:last-child{font-size:12px}#konfigurator .package-scope>span:last-child>small{font-size:9px}#konfigurator .package-highlights{font-size:10px;min-height:64px;gap:8px}#konfigurator .package-card .package-top>span:first-child{font-size:14px}}
+@media(max-width:580px){#konfigurator .package-scope{grid-column:1/-1;padding-block:15px;margin-block:3px;gap:18px}#konfigurator .package-scope-number>b{font-size:42px}#konfigurator .package-scope>span:last-child{font-size:15px}#konfigurator .package-highlights{grid-column:1/-1;font-size:12px;min-height:0;gap:6px}#konfigurator .package-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){#konfigurator .package-card,#konfigurator .package-card:hover{transform:none;transition:none}#konfigurator .package-select-label,#konfigurator .package-check,#konfigurator .package-select-label>span{transition:none;transform:none}}
