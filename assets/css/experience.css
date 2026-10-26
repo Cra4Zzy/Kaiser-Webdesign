@@ -1,6 +1,6 @@
 /* Kaiser / cinematic brand experience. Scoped to the three revised sections. */
 .hero.hero-scroll,.hero-sticky{background:#07090c}
-.hero-scroll.is-scrubbing{height:560svh}
+.hero-scroll.is-scrubbing{height:650svh}
 .hero-scroll .hero-content{justify-content:center;padding-top:140px;padding-bottom:130px;z-index:2}
 .hero-scroll h1{font-size:clamp(46px,4.7vw,86px);line-height:1.015;letter-spacing:-.065em;max-width:49%;text-wrap:initial}
 .hero-scroll h1 em{color:#e8edef}
@@ -67,7 +67,7 @@
 @media(min-width:1700px){.hero-scroll .hero-media{inset:4% 0% 4% 15%}}
 @media(max-width:1100px) and (min-width:761px){.hero-scroll h1{font-size:clamp(40px,4.8vw,54px);max-width:53%}.hero-scroll .hero-description{max-width:44%}.hero-scroll .hero-media{inset:12% 0% 8% 15%}.hero-bottom>span{display:none}.social-premium .social-layout{gap:45px}.story-row{gap:45px}.story-copy h3{font-size:34px}.reel-phone{border-radius:27px}.social-premium .reel-card video{border-radius:21px}}
 @media(max-width:760px){
- .hero-scroll.is-scrubbing{height:490svh}.hero-scroll .hero-sticky{display:flex;flex-direction:column;height:100svh;min-height:700px}
+ .hero-scroll.is-scrubbing{height:560svh}.hero-scroll .hero-sticky{display:flex;flex-direction:column;height:100svh;min-height:700px}
  .hero-scroll .hero-content{height:auto;flex:0 0 auto;justify-content:flex-start;padding-top:120px;padding-bottom:0;pointer-events:none}
  .hero-scroll h1{font-size:clamp(39px,9.4vw,62px);max-width:100%;line-height:1.01}
  .hero-scroll .hero-eyebrow{font-size:10px;letter-spacing:.12em;margin-bottom:20px}

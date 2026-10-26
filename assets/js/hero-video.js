@@ -34,9 +34,29 @@
   const clamp = n => Math.max(0, Math.min(1, n));
   const running = () => enabled && !failed && visible && !document.hidden;
 
+  // Continuous, monotone timing: give the cube-to-website build more scroll
+  // distance, without abrupt speed changes at a chapter boundary.
+  const timeline = [
+    { scroll: 0, film: 0, slope: 1.375 },
+    { scroll: .16, film: .22, slope: 1.41 },
+    { scroll: .36, film: .51, slope: 1.03 },
+    { scroll: .92, film: .96, slope: .68 },
+    { scroll: 1, film: 1, slope: 0 }
+  ];
+  function filmProgress(progress) {
+    const p = clamp(progress);
+    const index = timeline.findIndex(point => point.scroll >= p);
+    if (index <= 0) return index === 0 ? 0 : 1;
+    const a = timeline[index - 1], b = timeline[index];
+    const span = b.scroll - a.scroll, t = (p - a.scroll) / span;
+    const t2 = t * t, t3 = t2 * t;
+    return (2 * t3 - 3 * t2 + 1) * a.film + (t3 - 2 * t2 + t) * span * a.slope
+      + (-2 * t3 + 3 * t2) * b.film + (t3 - t2) * span * b.slope;
+  }
+
   function seek() {
     if (!running() || !ready || video.seeking) return;
-    const time = Math.min(end, Math.round(position * end * FPS) / FPS);
+    const time = Math.min(end, Math.round(filmProgress(position) * end * FPS) / FPS);
     // Seeking to the same time need not fire seeked, so never lock on it.
     if (Math.abs(time - video.currentTime) < 0.001 || time === requestedTime) return;
     requestedTime = time;
@@ -51,12 +71,13 @@
   function tick(now) {
     raf = 0;
     if (!running()) { lastTick = 0; return; }
-    const elapsed = lastTick ? now - lastTick : 16.67;
+    const elapsed = lastTick ? Math.min(now - lastTick, 50) : 16.67;
     lastTick = now;
-    position += (target - position) * (1 - Math.exp(-elapsed / 85));
-    if (Math.abs(target - position) < 0.0002) position = target;
+    position += (target - position) * (1 - Math.exp(-elapsed / 170));
+    if (Math.abs(target - position) < 0.00005) position = target;
     stage.style.setProperty('--hero-progress', position);
-    chapter.textContent = position < .30 ? '01 / DEINE MARKE' : position < .72 ? '02 / ALLES GREIFT INEINANDER' : '03 / DEIN DIGITALER AUFTRITT';
+    const film = filmProgress(position);
+    chapter.textContent = film < .30 ? '01 / DEINE MARKE' : film < .72 ? '02 / ALLES GREIFT INEINANDER' : '03 / DEIN DIGITALER AUFTRITT';
     seek();
     if (position !== target) schedule();
     else lastTick = 0;
