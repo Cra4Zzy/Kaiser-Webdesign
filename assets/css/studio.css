@@ -149,6 +149,10 @@ dialog{border:0;padding:0;color:var(--black);background:var(--white);max-height:
   padding: clamp(30px, 4vw, 68px) clamp(24px, 4vw, 70px);
   background: radial-gradient(ellipse at 65% 10%, #ffa450 0%, #b94e21 63%, #753016 100%);
 }
+.portfolio-art--dv {
+  aspect-ratio: auto;
+  background: radial-gradient(ellipse at 74% 18%, #386b92, #152d45 78%);
+}
 .portfolio-art--altstadt { background: #ab7336; }
 .portfolio-art--britta { background: #3d6a53; }
 .portfolio-art--kopp { background: #7c2838; }
