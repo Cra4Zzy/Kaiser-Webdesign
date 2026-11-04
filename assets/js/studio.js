@@ -27,6 +27,25 @@ const projects={
   scope:['Individuelles Webdesign für ANKA Transport','Fahrzeugübersicht von 7,5 t bis Sattelzug','Kontaktführung für Festeinsatz'],
   url:'https://ankatransport.de/'
  },
+ altstadt:{
+  title:'AltstadtApartments Dinkelsbühl',
+  category:'KUNDENPROJEKT / FERIENWOHNUNGEN',
+  image:'assets/references/altstadtapartments-portfolio.webp',
+  alt:'Projektmotiv für AltstadtApartments mit dem Wohnzimmer einer Ferienwohnung',
+  description:'Zwei Ferienwohnungen mitten in Dinkelsbühl. Der Relaunch zeigt, wie die Apartments aussehen, für wie viele Gäste sie geeignet sind und wie man den Aufenthalt buchen kann. Gäste können zwischen Deutsch und Englisch wechseln.',
+  scope:['Website-Relaunch auf Deutsch und Englisch','Eigene Seiten für beide Apartments','Buchungsanbindung mit Smoobu'],
+  url:null
+ },
+ britta:{
+  title:'Britta Rethfeldt',
+  category:'KUNDENPROJEKT / RELAUNCH-VORSCHAU',
+  image:'assets/references/britta-rethfeldt-portfolio.webp',
+  alt:'Projektmotiv für Britta Rethfeldt mit ihrem Porträt auf einer Brücke',
+  description:'Brittas neuer Auftritt zeigt, wer sie ist und wie sie Zeremonien gestaltet. Eigene Fotos, ein Portfolio mit Eindrücken von Feiern und eine Stimmprobe geben einen persönlichen ersten Eindruck.',
+  scope:['Website-Relaunch für eine freie Rednerin','Fotografie-Portfolio','Stimmprobe direkt auf der Website'],
+  url:'https://cra4zzy.github.io/Britta-Rednerin-/',
+  linkLabel:'Relaunch-Vorschau öffnen'
+ },
  formraum:{title:'Formraum',category:'KONZEPT-SHOWCASE / INNENARCHITEKTUR',image:'assets/references/ref-00-formraum-showcase.webp',alt:'Formraum – Konzeptwebsite mit großzügiger Typografie und warmer Innenarchitektur',description:'Ein Gestaltungs-Showcase für eine fiktive Innenarchitekturmarke. Großzügige Typografie, natürliche Materialien und klare Strukturen zeigen, wie sich räumliche Qualität in einen digitalen Auftritt übertragen lässt. Kein Auftrag eines realen Architekturstudios.',scope:['Editoriales Konzeptdesign','Architektur und Material als Bildwelt','Klare Struktur und Kontaktführung'],url:null},
  dv:{title:'DV Transporte',category:'KUNDENPROJEKT / SPEDITION & LOGISTIK',image:'assets/references/dv-transporte-current.webp',alt:'DV Transporte Website mit Fuhrpark, Leistungen und direkter Transportanfrage',description:'Der neue Auftritt für DV Transporte verbindet eine prägnante Typografie mit großflächigen Fuhrparkbildern und einer klaren Leistungsstruktur. Internationale Verkehre, regionale Umfuhren und verfügbare Kapazitäten werden schnell erfassbar; die Transportanfrage bleibt dabei jederzeit nah.',scope:['Individuelles Webdesign für Spedition & Logistik','Leistungs-, Fuhrpark- und Galerieinszenierung','Direkte Wege zur Transportanfrage'],url:'https://www.dvtransporte.de/'},
  yacht:{title:'Aurelia Yachts',category:'KONZEPT-SHOWCASE / CINEASTISCHES WEBDESIGN',image:'assets/references/aurelia-portfolio-1600.webp',alt:'Aktuelle Aurelia-Yachts-Website mit eleganter Typografie und Luxusyacht im Sonnenuntergang',description:'Für diese fiktive Yachtmarke habe ich die Website wie einen Film aufgebaut. Der Einstieg lässt dir die Wahl zwischen Ton und Stille. Beim Scrollen steuerst du das Tempo der Szenen, vom Atelier bis aufs offene Meer.',scope:['Cineastische Scroll-Inszenierung','Editoriales Design und Produktpräsentation','Interaktiver Konzept-Showcase'],url:'https://cra4zzy.github.io/Luxury-Yacht-/'},
@@ -39,7 +58,7 @@ const projects={
 const projectDialog=$('[data-project-dialog]'),reelDialog=$('[data-reel-dialog]');let previousFocus;
 function showDialog(dialog){previousFocus=document.activeElement;dialog.showModal();document.body.classList.add('dialog-open');}
 function releaseDialog(){document.body.classList.remove('dialog-open');previousFocus?.focus({preventScroll:true});}
-function openProject(key){const p=projects[key];if(!p)return;$('#dialog-title').textContent=p.title;$('[data-dialog-category]').textContent=p.category;const img=$('[data-dialog-image]');img.src=p.image;img.alt=p.alt;$('[data-dialog-description]').textContent=p.description;const ul=$('[data-dialog-scope]');ul.replaceChildren(...p.scope.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));const link=$('[data-dialog-link]');link.hidden=!p.url;if(p.url){link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';}showDialog(projectDialog);projectDialog.scrollTop=0;}
+function openProject(key){const p=projects[key];if(!p)return;$('#dialog-title').textContent=p.title;$('[data-dialog-category]').textContent=p.category;const img=$('[data-dialog-image]');img.src=p.image;img.alt=p.alt;$('[data-dialog-description]').textContent=p.description;const ul=$('[data-dialog-scope]');ul.replaceChildren(...p.scope.map(text=>{const li=document.createElement('li');li.textContent=text;return li;}));const link=$('[data-dialog-link]');link.hidden=!p.url;if(p.url){link.querySelector('[data-dialog-link-label]').textContent=p.linkLabel||'Website öffnen';link.href=p.url;link.target='_blank';link.rel='noopener noreferrer';}showDialog(projectDialog);projectDialog.scrollTop=0;}
 $$('[data-open-project]').forEach(b=>b.addEventListener('click',()=>openProject(b.dataset.openProject)));
 $('[data-close-dialog]').addEventListener('click',()=>projectDialog.close());projectDialog.addEventListener('close',releaseDialog);
 $$('[data-open-reel]').forEach(b=>b.addEventListener('click',()=>{showDialog(reelDialog);const v=$('video',reelDialog);v.play().catch(()=>{});}));
