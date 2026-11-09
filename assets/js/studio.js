@@ -30,8 +30,8 @@ const projects={
  altstadt:{
   title:'AltstadtApartments Dinkelsbühl',
   category:'KUNDENPROJEKT / FERIENWOHNUNGEN',
-  image:'assets/references/altstadtapartments-portfolio.webp',
-  alt:'Projektmotiv für AltstadtApartments mit dem Wohnzimmer einer Ferienwohnung',
+  image:'https://raw.githubusercontent.com/Cra4Zzy/Altstadtapartments/main/assets/img/events/altstadt-abend-1536.webp',
+  alt:'Historische Altstadt von Dinkelsbühl im Abendlicht – Heromotiv der AltstadtApartments Website',
   description:'Zwei Ferienwohnungen mitten in Dinkelsbühl. Der Relaunch zeigt, wie die Apartments aussehen, für wie viele Gäste sie geeignet sind und wie man den Aufenthalt buchen kann. Gäste können zwischen Deutsch und Englisch wechseln.',
   scope:['Website-Relaunch auf Deutsch und Englisch','Eigene Seiten für beide Apartments','Buchungsanbindung mit Smoobu'],
   url:null
