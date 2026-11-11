@@ -214,7 +214,9 @@ dialog{border:0;padding:0;color:var(--black);background:var(--white);max-height:
 .live-site-preview .live-preview-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;}
 .live-site-preview iframe{position:absolute;display:block;width:1901px;height:942px;max-width:none;border:0;transform-origin:top left;pointer-events:none;z-index:1;opacity:0;transition:opacity .45s ease;}
 .live-site-preview.is-loaded iframe{opacity:1;}
-.portfolio-art--britta .live-site-preview{inset:0;box-shadow:0 14px 34px #00000035;}
+/* Match the inset image frame of the other portfolio cards and hide the embedded page scrollbar. */
+.portfolio-art--britta .live-site-preview{inset:clamp(12px,1.65vw,24px);border-radius:6px;box-shadow:0 14px 34px #00000035;}
+.portfolio-art--britta .live-site-preview iframe{width:1941px;}
 .browser-viewport:has(.live-site-preview--story){position:relative;background:#f6f3eb;}
 .browser-viewport .live-site-preview--story{inset:0;border-radius:0;}
 @media(prefers-reduced-motion:reduce){.live-site-preview iframe{transition:none;}}
