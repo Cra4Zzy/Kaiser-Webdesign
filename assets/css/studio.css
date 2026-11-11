@@ -218,3 +218,6 @@ dialog{border:0;padding:0;color:var(--black);background:var(--white);max-height:
 .browser-viewport:has(.live-site-preview--story){position:relative;background:#f6f3eb;}
 .browser-viewport .live-site-preview--story{inset:0;border-radius:0;}
 @media(prefers-reduced-motion:reduce){.live-site-preview iframe{transition:none;}}
+
+/* Aurelia screenshot uses the full native 1900 × 941 frame without cropped text. */
+.motion-stage-picture img{aspect-ratio:1900/941;object-fit:contain;object-position:center;width:100%;height:auto;}
