@@ -222,7 +222,8 @@
   border-radius:50%;color:#28513e;
   transition:background .25s,color .25s,border-color .25s,transform .25s;
 }
-.faq--editorial .faq-list .plus::before{content:"+";font-size:23px;font-weight:300;line-height:1}
+.faq--editorial .faq-list .plus::before{content:"+";position:static;display:block;width:auto;height:auto;background:none;transform:none;font-size:23px;font-weight:300;line-height:1}
+.faq--editorial .faq-list .plus::after{content:none;display:none}
 .faq--editorial .faq-list details[open] .plus{
   border-color:#204d3c;background:#204d3c;color:#fff;
 }
@@ -353,6 +354,7 @@
   display:block;color:#c6d7f0;font-size:12px;font-weight:500;
   line-height:1.35;
 }
+#konfigurator .preview-outline[open]>summary>span:first-child{transform:none}
 #konfigurator .preview-outline .outline-toggle{
   display:grid;place-items:center;flex-shrink:0;
   width:34px;height:34px;border:1px solid #8ea3c3;
