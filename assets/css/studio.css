@@ -208,3 +208,13 @@ dialog{border:0;padding:0;color:var(--black);background:var(--white);max-height:
 @media(prefers-reduced-motion:reduce) {
   .portfolio-case,.portfolio-card-icon,.portfolio-art>img {transition:none;}
 }
+
+/* Actual client-site hero previews; site iframes are non-interactive and loaded only near view. */
+.live-site-preview{position:absolute;inset:0;display:block;overflow:hidden;isolation:isolate;background:#17211c;border-radius:6px;}
+.live-site-preview .live-preview-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;}
+.live-site-preview iframe{position:absolute;display:block;width:1901px;height:942px;max-width:none;border:0;transform-origin:top left;pointer-events:none;z-index:1;opacity:0;transition:opacity .45s ease;}
+.live-site-preview.is-loaded iframe{opacity:1;}
+.portfolio-art--britta .live-site-preview{inset:0;box-shadow:0 14px 34px #00000035;}
+.browser-viewport:has(.live-site-preview--story){position:relative;background:#f6f3eb;}
+.browser-viewport .live-site-preview--story{inset:0;border-radius:0;}
+@media(prefers-reduced-motion:reduce){.live-site-preview iframe{transition:none;}}
