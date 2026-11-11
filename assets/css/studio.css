@@ -221,3 +221,6 @@ dialog{border:0;padding:0;color:var(--black);background:var(--white);max-height:
 
 /* German-language Aurelia project screenshot: preserve complete image without cropping. */
 .motion-stage-picture img{aspect-ratio:1600/747;object-fit:contain;object-position:center;width:100%;height:auto;}
+
+/* Keep the exact user-provided Aurelia screenshot at its native aspect ratio. */
+.motion-stage-picture img{aspect-ratio:1903/942;object-fit:contain;object-position:center;width:100%;height:auto;}
