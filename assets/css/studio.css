@@ -209,17 +209,10 @@ dialog{border:0;padding:0;color:var(--black);background:var(--white);max-height:
   .portfolio-case,.portfolio-card-icon,.portfolio-art>img {transition:none;}
 }
 
-/* Actual client-site hero previews; site iframes are non-interactive and loaded only near view. */
-.live-site-preview{position:absolute;inset:0;display:block;overflow:hidden;isolation:isolate;background:#17211c;border-radius:6px;}
-.live-site-preview .live-preview-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;}
-.live-site-preview iframe{position:absolute;display:block;width:1901px;height:942px;max-width:none;border:0;transform-origin:top left;pointer-events:none;z-index:1;opacity:0;transition:opacity .45s ease;}
-.live-site-preview.is-loaded iframe{opacity:1;}
-/* Match the inset image frame of the other portfolio cards and hide the embedded page scrollbar. */
-.portfolio-art--britta .live-site-preview{inset:clamp(12px,1.65vw,24px);border-radius:6px;box-shadow:0 14px 34px #00000035;}
-.portfolio-art--britta .live-site-preview iframe{width:1941px;}
-.browser-viewport:has(.live-site-preview--story){position:relative;background:#f6f3eb;}
-.browser-viewport .live-site-preview--story{inset:0;border-radius:0;}
-@media(prefers-reduced-motion:reduce){.live-site-preview iframe{transition:none;}}
+/* Static, fast-loading original site screenshots for portfolio cards and story.
+   Screenshots are pre-rendered WebP instead of cross-domain iframe sites. */
+.story-browser[data-open-project="ersan"] .browser-viewport{aspect-ratio:1600/793}
+.portfolio-art--britta>img{object-fit:cover;object-position:center top}
 
 /* German-language Aurelia project screenshot: preserve complete image without cropping. */
 .motion-stage-picture img{aspect-ratio:1600/747;object-fit:contain;object-position:center;width:100%;height:auto;}

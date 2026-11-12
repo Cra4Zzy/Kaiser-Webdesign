@@ -39,7 +39,7 @@ const projects={
  ersan:{
   title:'Ersan’s Kebap',
   category:'KUNDENPROJEKT / GASTRONOMIE',
-  image:'https://raw.githubusercontent.com/Cra4Zzy/Ersans-Kebap/main/img/optimized/hero-kebap.webp',
+  image:'assets/references/ersans-kebap-actual-site.webp',
   alt:'Ersan’s Kebap Website mit Kebap-Fotografie und eleganter grün-beiger Gestaltung',
   description:'Ein eigenständiger Restaurant-Auftritt mit kräftiger Food-Fotografie, einer klaren Speisekarte und einfacher Kontaktführung. Die Gestaltung transportiert Frische, Qualität und den Charakter von Ersan’s Kebap.',
   scope:['Individuelles Gastronomie-Webdesign','Food-Fotografie und Markeninszenierung','Speisekarte und Kontaktführung'],
@@ -49,7 +49,7 @@ const projects={
  britta:{
   title:'Britta Rethfeldt',
   category:'KUNDENPROJEKT / RELAUNCH-VORSCHAU',
-  image:'assets/references/britta-rethfeldt-portfolio.webp',
+  image:'assets/references/britta-rethfeldt-actual-site.webp',
   alt:'Websiteprojekt für Britta Rethfeldt mit persönlichem Porträt und großer Editorial-Typografie',
   description:'Brittas neuer Auftritt zeigt, wer sie ist und wie sie Zeremonien gestaltet. Eigene Fotos, ein Portfolio mit Eindrücken von Feiern und eine Stimmprobe geben einen persönlichen ersten Eindruck.',
   scope:['Website-Relaunch für eine freie Rednerin','Fotografie-Portfolio','Stimmprobe direkt auf der Website'],
@@ -119,6 +119,3 @@ function renderProjectFields(type,{focus=false}={}){if(!projectFields)return;con
 if(form&&projectFields){let activeType=form.querySelector('input[name="project_type"]:checked')?.value||'Neue Website';renderProjectFields(activeType);form.querySelectorAll('input[name="project_type"]').forEach(input=>input.addEventListener('change',()=>{if(!input.checked)return;saveProjectDraft(activeType);activeType=input.value;renderProjectFields(activeType);}));}
 form?.addEventListener('submit',async event=>{event.preventDefault();if(!form.reportValidity()||form.dataset.sending)return;const button=$('[type=submit]',form),label=$('[data-submit-label]',form),status=$('[data-form-status]',form);form.dataset.sending='true';form.setAttribute('aria-busy','true');button.disabled=true;label.textContent='Wird gesendet';status.textContent='Deine Anfrage wird übermittelt …';const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),20000);try{const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'},signal:controller.signal});if(!response.ok)throw new Error('submission failed');location.assign(new URL('danke/',location.href).href);}catch(_){status.textContent='Der Versand konnte nicht bestätigt werden. Deine Eingaben bleiben erhalten. Versuche es erneut oder schreibe direkt an ivan@kaiser-webdesign.de.';}finally{clearTimeout(timeout);delete form.dataset.sending;form.removeAttribute('aria-busy');button.disabled=false;label.textContent='Anfrage senden';}});
 })();
-
-/* Responsive, non-interactive views of the live client websites; retain static image fallbacks. */
-(()=>{const previews=[...document.querySelectorAll('[data-live-preview]')];if(!previews.length)return;const sourceWidth=1901;const sourceHeight=942;const resize=()=>{for(const container of previews){const frame=container.querySelector('iframe');if(!frame)continue;const width=container.clientWidth,height=container.clientHeight;if(!width||!height)continue;const scale=Math.max(width/sourceWidth,height/sourceHeight);frame.style.transform='scale('+scale+')';frame.style.left=((width-sourceWidth*scale)/2)+'px';frame.style.top=((height-sourceHeight*scale)/2)+'px';}};const ro=typeof ResizeObserver!=='undefined'?new ResizeObserver(resize):null;for(const el of previews)ro?.observe(el);addEventListener('resize',resize,{passive:true});const load=el=>{const frame=el.querySelector('iframe');if(frame&&frame.dataset.src&&!frame.src){frame.src=frame.dataset.src;frame.addEventListener('load',()=>el.classList.add('is-loaded'),{once:true});}resize();};if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){load(entry.target);observer.unobserve(entry.target);}},{rootMargin:'350px'});previews.forEach(el=>observer.observe(el));}else previews.forEach(load);resize();})();
