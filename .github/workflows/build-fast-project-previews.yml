@@ -1,0 +1,64 @@
+name: Build fast project preview snapshots (one time)
+on:
+  push:
+    paths:
+      - '.github/workflows/build-fast-project-previews.yml'
+permissions:
+  contents: write
+jobs:
+  screenshots:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install screenshot tools
+        run: |
+          python -m pip install playwright==1.56.0 pillow
+          python -m playwright install chromium
+      - name: Capture actual website hero areas into optimized static WebP
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          from PIL import Image
+          from pathlib import Path
+          sources = [
+              ("britta-rethfeldt-actual-site.webp", "https://cra4zzy.github.io/Britta-Rednerin-/", "Echte Menschen"),
+              ("ersans-kebap-actual-site.webp", "https://cra4zzy.github.io/Ersans-Kebap/", "Ehrlich gut"),
+          ]
+          output = Path("assets/references")
+          output.mkdir(parents=True, exist_ok=True)
+          with sync_playwright() as p:
+              browser = p.chromium.launch(headless=True)
+              for name, url, expected in sources:
+                  page = browser.new_page(viewport={"width": 1901, "height": 942}, device_scale_factor=1)
+                  page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                  page.evaluate("() => document.fonts.ready")
+                  page.wait_for_timeout(2600)
+                  text = page.locator("body").inner_text(timeout=15000)
+                  if expected.lower() not in text.lower():
+                      raise RuntimeError(f"Unexpected content at {url}; refusing to save screenshot")
+                  raw = output / (name + ".png")
+                  page.screenshot(path=str(raw), full_page=False, animations="disabled")
+                  with Image.open(raw) as original:
+                      optimized = original.convert("RGB").resize((1600, round(original.height * 1600 / original.width)), Image.Resampling.LANCZOS)
+                      optimized.save(output / name, "WEBP", quality=82, method=6)
+                  raw.unlink()
+                  print(f"{name}: {(output / name).stat().st_size} bytes")
+                  page.close()
+              browser.close()
+          PY
+      - name: Commit the optimized images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/references/britta-rethfeldt-actual-site.webp assets/references/ersans-kebap-actual-site.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "Add optimized real-site snapshots for Britta and Ersan"
+            git push origin HEAD:main
+          fi
