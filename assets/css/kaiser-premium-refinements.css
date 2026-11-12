@@ -516,3 +516,181 @@
   .intro--signature__art:hover .intro--signature__shot--main{transform:rotate(-4deg)}
   .intro--signature__art:hover .intro--signature__shot--secondary{transform:rotate(6deg)}
 }
+
+/* 2026-11-12 — FAQ signature editorial redesign
+   Structure, typesetting and decorative geometry are CSS/HTML, not a static image.
+   Existing semantic <details> accordions and original answers are preserved. */
+.faq--signature {
+  position:relative; isolation:isolate; overflow:hidden;
+  background:#f1eee7;color:#101d1b;
+  padding-block:clamp(92px,8vw,150px) clamp(92px,8vw,150px);
+}
+.faq--signature::before {
+  content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 42% 50% at 99% 2%,rgba(174,221,134,.23),transparent 70%),
+    radial-gradient(ellipse 52% 49% at -6% 100%,rgba(119,179,131,.19),transparent 65%),
+    radial-gradient(ellipse 60% 65% at 46% 52%,rgba(255,255,255,.60),transparent 90%);
+}
+.faq--signature .faq-layout{
+  display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);
+  gap:clamp(64px,6.8vw,135px);align-items:start;
+}
+.faq--signature .faq-intro{min-width:0;display:flex;flex-direction:column}
+.faq--signature .faq--signature__eyebrow{
+  display:flex;align-items:center;gap:21px;
+  margin:0 0 clamp(42px,5vw,81px);
+  color:#17332b;font-size:12px;font-weight:750;letter-spacing:.17em;line-height:1.5;
+}
+.faq--signature__eyebrow span{display:block;width:63px;height:2px;background:#86c84f;flex:none}
+.faq--signature h2{
+  color:#0d1818;font-weight:620;
+  font-size:clamp(43px,4.4vw,80px);
+  line-height:1.045;letter-spacing:-.061em;
+  margin:0 0 clamp(23px,2.5vw,38px);
+  text-wrap:balance;
+}
+.faq--signature h2 em{
+  display:inline-block;font-family:inherit;font-style:normal;font-weight:640;
+  letter-spacing:inherit;
+  background:linear-gradient(95deg,#a6d651 0%,#407c47 40%,#0e5747 77%,#85c641 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.faq--signature .faq--signature__lead{
+  color:#404e4b;max-width:51ch;margin:0;
+  font-size:clamp(16px,1.15vw,19px);font-weight:430;line-height:1.68;
+}
+.faq--signature__contact{
+  position:relative;isolation:isolate;overflow:hidden;min-height:310px;
+  margin-top:clamp(42px,4.2vw,72px);
+  border-radius:19px;background:linear-gradient(115deg,#061b16 8%,#0c3328 55%,#235d46 100%);
+  color:#f3fcf3;border:1px solid rgba(23,72,52,.25);
+  box-shadow:0 24px 52px rgba(21,55,40,.18),0 5px 11px rgba(21,55,40,.08);
+}
+.faq--signature__contact::after{
+  content:"";position:absolute;inset:auto -25% -67% 20%;height:95%;z-index:0;
+  background:radial-gradient(ellipse,rgba(175,255,67,.88) 0%,rgba(126,226,57,.34) 27%,transparent 69%);
+  filter:blur(37px);pointer-events:none;
+}
+.faq--signature__contact-copy{
+  position:relative;z-index:3;
+  padding:clamp(27px,2.65vw,43px);width:min(65%,420px);
+}
+.faq--signature__chat{color:#c6f45a;display:block;margin-bottom:29px;filter:drop-shadow(0 0 8px rgba(171,249,89,.17))}
+.faq--signature__contact-copy strong{
+  display:block;margin:0;color:#f9fff7;font-size:clamp(24px,2.25vw,37px);
+  line-height:1.08;font-weight:570;letter-spacing:-.045em;
+}
+.faq--signature__contact-copy p{
+  margin:17px 0 0;font-size:clamp(14px,.97vw,16px);
+  color:#d0e0d6;line-height:1.65;
+}
+.faq--signature__contact-copy a{
+  display:inline-flex;align-items:center;gap:15px;margin-top:22px;
+  color:#eaffdc;font-size:13px;font-weight:700;
+  text-decoration:none;padding:0 0 5px;
+  border-bottom:1px solid rgba(206,247,171,.5);
+}
+.faq--signature__contact-copy a span{font-size:18px;color:#b9f469;transition:transform .25s}
+.faq--signature__contact-copy a:hover span{transform:translate(3px,-3px)}
+.faq--signature__art{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.faq--signature__glass {
+  position:absolute;display:block;
+  background:linear-gradient(130deg,rgba(199,255,226,.43),rgba(161,246,205,.055) 48%,rgba(136,235,165,.22));
+  border:1px solid rgba(231,255,228,.52);
+  box-shadow:inset 2px 2px 15px rgba(236,255,233,.16),0 0 22px rgba(117,218,171,.15);
+  backdrop-filter:blur(5px);
+}
+.faq--signature__glass--a{
+  width:46%;height:130%;top:-18%;right:-16%;
+  transform:skewX(-19deg) rotate(17deg);
+  border-radius:9px;
+}
+.faq--signature__glass--b{
+  width:27%;height:85%;right:12%;bottom:-29%;
+  transform:skewX(-24deg) rotate(6deg);
+  border-radius:8px;
+  background:linear-gradient(160deg,rgba(221,254,227,.55),rgba(93,195,162,.13) 53%,rgba(183,240,115,.3));
+}
+.faq--signature__glass--c{
+  width:30%;height:112%;right:-12%;top:2%;
+  transform:rotate(42deg);
+  border-radius:5px;
+  background:linear-gradient(125deg,rgba(222,255,238,.16),transparent 45%,rgba(156,252,114,.2));
+}
+.faq--signature .faq-list{margin-top:clamp(17px,2.2vw,41px);border-top:1px solid rgba(34,60,53,.28)}
+.faq--signature .faq-list details{border-bottom:1px solid rgba(34,60,53,.24)}
+.faq--signature .faq-list details>summary{
+  display:grid;grid-template-columns:minmax(0,1fr) 30px;
+  gap:clamp(16px,2.5vw,36px);align-items:center;
+  color:#142521;font-size:clamp(17px,1.31vw,21px);font-weight:660;
+  letter-spacing:-.026em;line-height:1.34;cursor:pointer;
+  padding:clamp(25px,2.15vw,36px) 0;transition:color .25s;
+}
+.faq--signature .faq-list details>summary:hover,
+.faq--signature .faq-list details[open]>summary{color:#206a50}
+.faq--signature .faq-list .faq-question{display:block}
+.faq--signature .faq-list .faq-number{display:none}
+.faq--signature .faq-list .plus{
+  position:relative;display:grid;place-items:center;flex-shrink:0;
+  width:28px;height:28px;
+  border:0;background:transparent;border-radius:0;
+  box-shadow:none;color:#154737;transition:transform .25s ease;
+}
+.faq--signature .faq-list .plus::before{
+  content:"+";position:static;width:auto;height:auto;transform:none;
+  display:block;background:transparent;border:0;
+  font-size:29px;font-weight:350;line-height:1;
+}
+.faq--signature .faq-list .plus::after{content:none;display:none}
+.faq--signature .faq-list details[open] .plus{border:0;background:transparent;color:#246f50}
+.faq--signature .faq-list details[open] .plus::before{content:"−"}
+.faq--signature .faq-list summary:hover .plus{border:0;background:transparent;color:#0d815c}
+.faq--signature .faq-list details>p{
+  padding:0 clamp(22px,2.9vw,43px) clamp(29px,3vw,43px) 0;
+  margin:0;color:#43564d;font-size:clamp(15px,1.04vw,17px);line-height:1.72;
+}
+.faq--signature .faq-list details>p a{color:#16583d}
+.faq--signature .faq-list summary:focus-visible,
+.faq--signature__contact a:focus-visible{outline:3px solid #5a9d34;outline-offset:5px}
+@media(max-width:1100px){
+  .faq--signature .faq-layout{gap:clamp(36px,5vw,70px)}
+  .faq--signature h2{font-size:clamp(44px,5vw,60px)}
+  .faq--signature__contact-copy{width:73%}
+}
+@media(max-width:850px){
+  .faq--signature .faq-layout{grid-template-columns:minmax(0,1fr);gap:44px}
+  .faq--signature .faq-intro{max-width:none}
+  .faq--signature .faq--signature__eyebrow{margin-bottom:36px}
+  .faq--signature h2{font-size:clamp(45px,7vw,73px)}
+  .faq--signature__contact{max-width:740px;margin-top:38px;min-height:290px}
+  .faq--signature .faq-list{margin-top:0}
+}
+@media(max-width:600px){
+  .faq--signature{padding-block:73px 82px}
+  .faq--signature .faq--signature__eyebrow{font-size:10px;gap:14px}
+  .faq--signature__eyebrow span{width:46px}
+  .faq--signature h2{font-size:clamp(40px,9.3vw,56px);line-height:1.07}
+  .faq--signature .faq--signature__lead{font-size:15px}
+  .faq--signature__contact{min-height:300px;border-radius:13px}
+  .faq--signature__contact-copy{width:80%;padding:26px}
+  .faq--signature__contact-copy strong{font-size:28px}
+  .faq--signature__contact-copy p{font-size:14px}
+  .faq--signature__chat{width:37px;height:37px;margin-bottom:19px}
+  .faq--signature__glass--a{right:-31%;width:50%}
+  .faq--signature__glass--b{right:0}
+  .faq--signature .faq-list details>summary{
+    font-size:17px;grid-template-columns:minmax(0,1fr) 26px;
+    padding:24px 0;
+  }
+  .faq--signature .faq-list details>p{font-size:15px;padding:0 22px 24px 0}
+}
+@media(max-width:390px){
+  .faq--signature__contact-copy{width:88%}
+  .faq--signature__contact{min-height:320px}
+  .faq--signature h2{font-size:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  .faq--signature .faq-list .plus,
+  .faq--signature__contact-copy a span{transition:none}
+}
