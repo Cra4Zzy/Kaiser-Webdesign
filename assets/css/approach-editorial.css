@@ -1,0 +1,46 @@
+/* Kaiser Webdesign — Post-hero editorial manifesto.
+   No logos, image montages, browser screenshots, or 3D decoration. */
+.approach { position:relative; isolation:isolate; background:#0b1412; color:#f3f5ee; overflow:hidden; padding-block:clamp(100px,9vw,160px) clamp(65px,6vw,106px); }
+.approach::before { content:"";pointer-events:none;position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse 52% 62% at 83% 44%,rgba(32,91,69,.19),transparent 75%),radial-gradient(ellipse 38% 42% at -11% 95%,rgba(99,126,64,.07),transparent 75%); }
+.approach__inner{max-width:1800px}
+.approach__eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 clamp(58px,6vw,100px);font-size:11px;letter-spacing:.17em;font-weight:600;color:#acc4b2;line-height:1.5}
+.approach__eyebrow-mark{flex:none;display:inline-block;width:8px;height:8px;background:#b4ed72;border-radius:50%;box-shadow:0 0 0 6px rgba(180,237,114,.075)}
+.approach__eyebrow-side{margin-left:auto;text-align:right;color:#80988d;letter-spacing:.12em}
+.approach__grid{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);gap:clamp(44px,5.4vw,105px);align-items:center}
+.approach__copy{min-width:0;padding:20px 0}
+.approach__pretitle{font-size:11px;letter-spacing:.18em;color:#a3cbab;font-weight:650;margin:0 0 clamp(20px,2.2vw,35px)}
+.approach h2{font-weight:500;font-size:clamp(48px,5.55vw,100px);letter-spacing:-.07em;line-height:.99;margin:0;color:#f7f7ef}
+.approach h2 em{display:inline-block;font-weight:400;font-style:italic;font-family:Georgia,'Times New Roman',serif;letter-spacing:-.066em;color:#c6e5c9;font-size:.94em;line-height:1.03}
+.approach__description{margin:clamp(29px,3.2vw,50px) 0 0;max-width:49ch;color:#b8c9c0;font-size:clamp(16px,1.17vw,19px);line-height:1.65}
+.approach__cta{display:inline-flex;align-items:center;gap:30px;margin-top:32px;color:#e9f5e9;text-decoration:none;padding:0 0 12px;border-bottom:1px solid #8bac88;font-size:15px;font-weight:650;transition:color .3s,border-color .3s}
+.approach__cta span{font-size:21px;line-height:1;color:#bdf17a;transition:transform .3s}
+.approach__cta:hover{color:#c9f6a2;border-color:#c9f6a2}
+.approach__cta:hover span{transform:translate(3px,-3px)}
+.approach__experience{position:relative;display:flex;flex-direction:column;min-height:clamp(525px,41vw,665px);background:linear-gradient(145deg,#1a3028 0%,#153128 45%,#101e1b 100%);border:1px solid rgba(198,240,207,.19);border-radius:6px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.21)}
+.approach__experience::before{content:"";position:absolute;pointer-events:none;inset:0;background:radial-gradient(ellipse 88% 66% at 96% 70%,rgba(126,215,117,.15),transparent 75%);opacity:.75}
+.approach__experience-top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(24px,2.4vw,38px) clamp(24px,2.7vw,43px) 0;font-size:10px;letter-spacing:.12em;font-weight:650;color:#b9d3bf}
+.approach__experience-top span:last-child{color:#9dac9d;font-variant-numeric:tabular-nums}
+.approach__experience-content{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;flex:1;min-height:310px;padding:clamp(28px,3.3vw,55px) clamp(24px,2.7vw,43px) clamp(34px,3.5vw,58px)}
+.approach__experience-kicker{font-size:11px;letter-spacing:.13em;color:#b1e28a;font-weight:700;margin:0 0 28px}
+.approach__experience-title{display:flex;flex-direction:column;gap:4px;align-items:flex-start;font-size:clamp(34px,3.15vw,61px);font-weight:500;line-height:1.05;letter-spacing:-.055em;margin:0;color:#f3f8ef}
+.approach__experience-title em{font-family:Georgia,'Times New Roman',serif;font-size:.99em;font-style:italic;font-weight:400;letter-spacing:-.052em;line-height:1.13;color:#c2e5bd}
+.approach__experience-description{max-width:45ch;margin:clamp(25px,2.2vw,35px) 0 0;color:#baccc0;font-size:clamp(14px,.99vw,16px);line-height:1.67}
+.approach__choices{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(229,243,225,.16)}
+.approach__choices button{min-width:0;min-height:105px;padding:18px clamp(13px,1.8vw,29px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:9px;background:rgba(0,0,0,.09);border:0;border-top:3px solid transparent;color:#d3e0d8;text-align:left;cursor:pointer;transition:background .25s,border-color .25s,color .25s}
+.approach__choices button+button{border-left:1px solid rgba(229,243,225,.12)}
+.approach__choices button span{font-size:11px;color:#97b29e;letter-spacing:.07em;font-variant-numeric:tabular-nums}
+.approach__choices button strong{font-size:clamp(14px,1.15vw,19px);font-weight:550;letter-spacing:-.03em}
+.approach__choices button:hover{background:rgba(128,207,122,.08);color:#fff}
+.approach__choices button[aria-pressed="true"]{background:rgba(182,237,118,.115);border-top-color:#b5f070;color:#f1f7e6}
+.approach__choices button[aria-pressed="true"] span{color:#c2f288}
+.approach__closing{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:clamp(55px,7vw,120px);padding-top:24px;border-top:1px solid rgba(223,242,226,.18);font-size:10px;line-height:1.6;letter-spacing:.11em;color:#8ea99a}
+.approach__closing p{margin:0;max-width:54ch;color:#bfccc1}
+.approach__closing span{text-align:right}
+.approach__experience-content.is-switching .approach__experience-kicker,.approach__experience-content.is-switching .approach__experience-title,.approach__experience-content.is-switching .approach__experience-description{animation:approachReveal .44s cubic-bezier(.2,.7,.2,1) both}
+@keyframes approachReveal{from{opacity:.25;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.approach a:focus-visible,.approach button:focus-visible{outline:2px solid #c4fb8d;outline-offset:4px}
+@media(max-width:1100px){.approach__grid{grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:34px}.approach h2{font-size:clamp(48px,5.6vw,72px)}.approach__experience{min-height:535px}}
+@media(max-width:800px){.approach__grid{grid-template-columns:1fr;gap:50px}.approach__copy{padding:0;max-width:750px}.approach h2{font-size:clamp(52px,8.1vw,79px)}.approach__experience{min-height:500px;max-width:850px}.approach__closing{margin-top:60px}}
+@media(max-width:600px){.approach{padding-block:78px 65px}.approach__eyebrow{margin-bottom:47px;font-size:10px}.approach__eyebrow-side{display:none}.approach__pretitle{font-size:10px;margin-bottom:21px}.approach h2{font-size:clamp(42px,10.1vw,62px)}.approach__description{font-size:15px}.approach__cta{font-size:14px}.approach__experience{min-height:480px;border-radius:4px}.approach__experience-top{font-size:9px;padding:24px 22px 0}.approach__experience-content{padding:28px 22px 32px}.approach__experience-title{font-size:clamp(32px,8.4vw,48px)}.approach__experience-description{font-size:14px}.approach__choices button{min-height:91px;padding:16px 12px}.approach__choices button strong{font-size:14px}.approach__closing{flex-direction:column;align-items:flex-start;gap:9px;margin-top:52px}.approach__closing span{text-align:left}}
+@media(max-width:380px){.approach h2{font-size:38px}.approach__experience-title{font-size:31px}.approach__choices button strong{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.approach__experience-content.is-switching .approach__experience-kicker,.approach__experience-content.is-switching .approach__experience-title,.approach__experience-content.is-switching .approach__experience-description{animation:none}.approach__choices button,.approach__cta,.approach__cta span{transition:none}}
